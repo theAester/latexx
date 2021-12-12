@@ -1,0 +1,93 @@
+\ProvidesPackage{styles}
+\usepackage[a4paper,total={6.5in, 10in},right=2cm,left=2cm,top=1.5cm,bottom=1.5cm,headheight=17pt, includehead,includefoot,]{geometry}
+\usepackage[bottom,hang]{footmisc}
+\usepackage{setspace}
+\usepackage[inline]{enumitem}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{xcolor}
+\usepackage[most,breakable]{tcolorbox}
+\usepackage[colorlinks,linkcolor=blue,urlcolor=blue,citecolor=blue,filecolor=blue,anchorcolor=blue]{hyperref}
+\usepackage{textpos}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{caption}
+\usepackage[hang]{footmisc}
+% New Defines ======================
+\newcommand{\Department}{دا‍نشکده مهندسی کامپیوتر}
+\newcommand{\Title}{تمرین دهم}
+\newcommand{\DueDate}{۱۴۰۰/۱۰/۰۳}
+\newcommand{\Class}{کارگاه کامپیوتر}
+\newcommand{\Subject}{آشنایی مقدماتی با \LaTeX}
+\newcommand{\Semester}{۰۱-۱۴۰۰}
+\newcommand{\Instructor}{دکتر مرتضی امینی، دکتر حمید ضرابی‌زاده}
+\newcommand{\ClassCode}{40108}
+
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{light-gray}{gray}{0.95}
+% Footer & Header ==================
+\fancyhf{}
+\fancyhead[RE,LO]{\Title}
+\fancyhead[LE,RO]{\rule[-1.4ex]{0pt}{2ex} \Class\ {\small (\ClassCode)}}
+\fancyfoot[L]{صفحه \textbf{\thepage} از \textbf{\pageref*{LastPage}}}
+\fancyfoot[R]{%
+$
+\begin{array}{l}
+\includegraphics[width=2.3ex]{sharif-logo}
+\end{array}
+$%
+\footnotesize دانشگاه صنعتی شریف
+}
+%
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{%
+	\fancyhf{} % clear all header and footer fields
+	%\rule[1ex]{0pt}{2ex}
+	\fancyfoot[L]{صفحه \textbf{\thepage} از \textbf{\pageref*{LastPage}}}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+}
+
+\pagestyle{fancy}
+% Spaces ===========================
+\setlist{itemsep=1pt}
+\linespread{1.5}
+\renewcommand{\footnotelayout}{\setstretch{1.1}}
+\setlength{\footnotesep}{0.75\baselineskip}
+\setlength\parindent{0pt}
+\setlength{\footnotemargin}{3mm}
+\setlength{\skip\footins}{1.2pc plus 5pt}
+\setlength{\parskip}{.6em}
+\delimitershortfall=-1pt
+% Fancy Environments ===============
+\newtcolorbox{titlebox}{enhanced,size=normal,colback=light-gray,colframe=black,sharp corners,shadow={-1mm}{-1mm}{0mm}{black},boxrule=0.6pt,boxsep=2mm}
+% Title box ========================
+\newcommand{\maketitlebox}{%
+\thispagestyle{plain}
+\begin{textblock*}{\textwidth}(0pt,-1.5cm)
+	\centering \small
+	بسمه تعالی
+\end{textblock*}
+\begin{minipage}[c]{0.7\textwidth}
+	\flushright
+	{\Large\bfseries{\Class} (\ClassCode)\ {\scriptsize (نیم‌سال \Semester)}}\\
+	{\small \Instructor}
+\end{minipage}
+\hfill
+\begin{minipage}[c]{0.17\textwidth}
+	\centering
+	\includegraphics[width=.6\textwidth]{sharif-logo}\\[-5pt]
+	{\scriptsize \Department}
+\end{minipage}
+\vspace{2ex}
+\begin{titlebox}
+	{\Large{\textbf{\Title}} \scriptsize{(\Subject)}}\hfill
+	\parbox{.4\textwidth}{%
+		\vspace{-1.3ex}
+		\flushleft
+		\small
+		آخرین مهلت ارسال تا \DueDate
+	}
+\end{titlebox}
+\vspace*{.25em}
+}
